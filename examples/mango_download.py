@@ -3,12 +3,12 @@ from pathlib import Path
 
 from tqdm.auto import tqdm
 
-from scrapper.brand.mango.Mango import Mango
-from scrapper.brand.mango.consts.parser import *
-from scrapper.brand.mango.helper.download.DownloadHelper import DownloadHelper
-from utils.io import Json_DB
-from utils.list import includes_excludes_filter, flatten
-from utils.web.dynamic import driver as d_driver
+from fashionscrapper.brand.mango.Mango import Mango
+from fashionscrapper.brand.mango.consts.parser import *
+from fashionscrapper.brand.mango.helper.download.DownloadHelper import DownloadHelper
+from fashionscrapper.utils.io import Json_DB
+from fashionscrapper.utils.list import includes_excludes_filter, flatten
+from fashionscrapper.utils.web import driver as d_driver
 
 
 def download_category(category, mango, sub_categories):

@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 ### readme = f.read()
 
 setup(
-    name='fashion_scrapper',
+    name='fashionscrapper',
     version='0.1.0',
     description='',
     #long_description=readme,
