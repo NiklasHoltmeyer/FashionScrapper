@@ -1,8 +1,11 @@
-from default_logger.defaultLogger import defaultLogger
+from fashionscrapper.default_logger.defaultLogger import defaultLogger
+from fashionscrapper.brand import parser_settings
+from fashionscrapper.brand.parser_settings import *
 from fashionscrapper.utils.io import Json_DB
 
-BASE_PATH = r"F:\workspace\fascrapper\scrap_results\asos"
-THREADS = 3
+BASE_PATH = os.path.join(parser_settings.BASE_PATH, "asos")
+THREADS = parser_settings.THREADS
+
 PAGINATE = True
 IGNORE_EXISTING = False
 unknown_category_allowed = True

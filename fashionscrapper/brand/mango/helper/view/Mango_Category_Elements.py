@@ -5,7 +5,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-from fashionscrapper.utils.web import wait, scroll_end_of_page
+from fashionscrapper.utils.web.dynamic import wait, scroll_end_of_page
 
 
 class Mango_Category_Elements:

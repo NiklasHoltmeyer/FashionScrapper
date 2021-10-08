@@ -8,8 +8,7 @@ from fashionscrapper.brand.mango.consts.parser import *
 from fashionscrapper.brand.mango.helper.download.DownloadHelper import DownloadHelper
 from fashionscrapper.utils.io import Json_DB
 from fashionscrapper.utils.list import includes_excludes_filter, flatten
-from fashionscrapper.utils.web import driver as d_driver
-
+from fashionscrapper.utils.web.dynamic import driver as d_driver
 
 def download_category(category, mango, sub_categories):
     path = Path(BASE_PATH, category["name"])

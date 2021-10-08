@@ -10,7 +10,7 @@ from tinydb.storages import JSONStorage
 from tinydb_serialization import SerializationMiddleware
 from tinydb_serialization.serializers import DateTimeSerializer
 
-from default_logger.defaultLogger import defaultLogger
+from fashionscrapper.default_logger.defaultLogger import defaultLogger
 
 
 def Json_DB(*paths):

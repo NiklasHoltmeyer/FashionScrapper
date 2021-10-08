@@ -7,8 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 
 from fashionscrapper.brand.hm.webelements.consts.HM_Selectors import HM_Selectors
-from fashionscrapper.utils.web import scroll_end_of_page
-from fashionscrapper.utils.web import wait
+from fashionscrapper.utils.web.dynamic import scroll_end_of_page, wait
 
 
 class HM_Category_Elements:

@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 from fashionscrapper.brand.asos.webelements.consts.Asos_Selectors import Asos_Selectors
-from fashionscrapper.utils.web import wait, scroll_end_of_page
+from fashionscrapper.utils.web.dynamic import wait, scroll_end_of_page
 
 
 class Asos_Category_Elements:

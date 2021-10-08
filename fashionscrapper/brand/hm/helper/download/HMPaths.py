@@ -2,7 +2,7 @@ from pathlib import Path
 from urllib import parse
 from urllib.parse import unquote
 
-from default_logger.defaultLogger import defaultLogger
+from fashionscrapper.default_logger.defaultLogger import defaultLogger
 from fashionscrapper.brand.hm.webelements.consts.HM_Selectors import HM_Selectors
 
 

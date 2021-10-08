@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from fashionscrapper.brand.hm.webelements.consts.HM_Selectors import HM_Selectors
 from fashionscrapper.utils.list import flatten, distinct_list_of_dicts
-from fashionscrapper.utils.web import wait
+from fashionscrapper.utils.web.dynamic import wait
 
 
 class HM_Categories_Elements:

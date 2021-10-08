@@ -1,63 +1,41 @@
 from multiprocessing import freeze_support
 
+from fashionscrapper.brand.asos.Asos import Asos
+from fashionscrapper.brand.asos.consts.parser import *
 from fashionscrapper.brand.asos.helper.database.dbhelper import list_dbs_by_category
-from fashionscrapper.brand.hm.HM import HM
-from fashionscrapper.brand.hm.consts.parser import *
-from fashionscrapper.brand.hm.helper.download.HMPaths import HMPaths
-from fashionscrapper.brand.hm.helper.download.HM_DownloadHelper import HM_DownloadHelper
-from fashionscrapper.utils.web import driver as d_driver
-
-unknown_category_allowed=False
-
-#def prepare_categories(category_jobs):
-#    def load_category(cat_data):
-#        category_name, category_url = cat_data
-#        with d_driver(headless=False) as driver:
-#            hm = HM(driver=driver, logger=logger)
-#            logger.debug("Loading" + category_url)
-#            items = hm.list_category(category_url, PAGINATE=PAGINATE)
-#            return [{"category": {"name": category_name, "url": category_url, "items": [x]}} for x in items]
-
-#    categories_data = []
-#    with Pool(THREADS) as p:
-#        r = p.map(load_category, tqdm(category_jobs, desc=f"i) List Cat. {THREADS} Threads", total=len(category_jobs)))
-#        categories_data.append(r)
-#        return flatten(categories_data)
+from fashionscrapper.brand.asos.helper.download.AsosPaths import AsosPaths
+from fashionscrapper.brand.asos.helper.download.Asos_DownloadHelper import Asos_DownloadHelper
+from fashionscrapper.utils.web.dynamic import driver as d_driver
 
 
 def prepare_categories(dl_helper):
     with d_driver(headless=False) as driver:
-        category_jobs_ = HM(driver=driver).list_categories_group_by_name()
-        assert len(category_jobs_) > 0
-
+        category_jobs_ = Asos(driver=driver).list_categories_group_by_name()
     exceptions = dl_helper.prepare_categories(category_jobs_)
-
     for exceptions in exceptions:
         if len(exceptions) > 0:
             print(exceptions)
             print("")
 
-
 def prepare_articles(dl_helper):
-    categories_db_path = HMPaths(BASE_PATH).get_category_db_base_path()
+    categories_db_path = AsosPaths(BASE_PATH).get_category_db_base_path()
 
     categories_db = list_dbs_by_category(db_base_Path=categories_db_path, CATEGORIES=CATEGORIES,
                                          unknown_category_allowed=unknown_category_allowed)
     dl_helper.prepare_articles(categories_db)
 
 def download_images(dl_helper):
-    entries_db_path = HMPaths(BASE_PATH).get_entries_db_base_path()
+    entries_db_path = AsosPaths(BASE_PATH).get_entries_db_base_path()
     entries_db = list_dbs_by_category(db_base_Path=entries_db_path, CATEGORIES=CATEGORIES,
                                       unknown_category_allowed=unknown_category_allowed)
-
     exceptions = dl_helper.download_images(entries_db)
     exceptions = list(filter(lambda x: x, exceptions))
     for url, dst, exception in exceptions:
         print(url, exception)
-    print("Len Excp", len(exceptions))
+    print("Len Exceptions", len(exceptions))
 
 def describe_results(dl_helper):
-    results = dl_helper.describe_results()
+    results = dl_helper.describe_results(FORCE=True)
     for key, value in results.items():
         print(key)
         #print(max(len(key), len(value)) * "v")
@@ -67,8 +45,10 @@ def describe_results(dl_helper):
 
 if __name__ == "__main__":
     freeze_support()
-    dl_helper = HM_DownloadHelper(**dl_settings)
+
+    dl_helper = Asos_DownloadHelper(**dl_settings)
     prepare_categories(dl_helper)
     prepare_articles(dl_helper)
     download_images(dl_helper)
     describe_results(dl_helper)
+

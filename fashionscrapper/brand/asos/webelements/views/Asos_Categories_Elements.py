@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from fashionscrapper.brand.asos.helper.download.AsosPaths import AsosPaths
 from fashionscrapper.brand.asos.webelements.consts.Asos_Selectors import Asos_Selectors
 from fashionscrapper.utils.list import flatten, distinct
-from fashionscrapper.utils.web import wait
+from fashionscrapper.utils.web.dynamic import wait
 
 
 class Asos_Categories_Elements:

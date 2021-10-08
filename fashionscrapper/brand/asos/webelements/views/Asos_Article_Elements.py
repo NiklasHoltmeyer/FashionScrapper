@@ -3,8 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 from fashionscrapper.utils.list import distinct_list_of_dicts, flatten
-from fashionscrapper.utils.web import wait, scroll_end_of_page
-
+from fashionscrapper.utils.web.dynamic import wait, scroll_end_of_page
 
 class Asos_Article_Elements:
     """

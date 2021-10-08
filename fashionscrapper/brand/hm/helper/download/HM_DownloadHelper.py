@@ -10,13 +10,13 @@ from PIL import Image
 from tinydb import where
 from tqdm.auto import tqdm
 
-from default_logger.defaultLogger import defaultLogger
+from fashionscrapper.default_logger.defaultLogger import defaultLogger
 from fashionscrapper.brand.hm.HM import HM
 from fashionscrapper.brand.hm.helper.download.HMPaths import HMPaths
 from fashionscrapper.utils.io import Json_DB, time_logger
 from fashionscrapper.utils.list import flatten, distinct_list_of_dicts
-from fashionscrapper.utils.web import driver as d_driver
-from fashionscrapper.utils.web import download_file
+from fashionscrapper.utils.web.dynamic import driver as d_driver
+from fashionscrapper.utils.web.static import download_file
 
 
 class HM_DownloadHelper:

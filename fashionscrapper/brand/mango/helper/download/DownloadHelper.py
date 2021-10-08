@@ -6,7 +6,7 @@ from tqdm.auto import tqdm
 
 from fashionscrapper.brand.mango.helper.download.MangoPaths import MangoPaths
 from fashionscrapper.utils.io import Json_DB
-from fashionscrapper.utils.web import download_file
+from fashionscrapper.utils.web.static import download_file
 
 
 class DownloadHelper:

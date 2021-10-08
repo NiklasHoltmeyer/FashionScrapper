@@ -8,7 +8,7 @@ from fashionscrapper.brand.mango.webelements.consts.Mango_Selectors import Mango
 from fashionscrapper.brand.mango.webelements.views.Mango_Categories_Elements import Mango_Categories_Elements
 from fashionscrapper.brand.mango.webelements.views.Mango_Category_Elements import Mango_Category_Elements
 from fashionscrapper.brand.mango.webelements.views.Mango_Item_Elements import Mango_Article_Elements
-from fashionscrapper.utils.web import wait
+from fashionscrapper.utils.web.dynamic import wait
 
 
 class MangoWebElements:
