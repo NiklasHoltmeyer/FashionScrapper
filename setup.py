@@ -18,7 +18,7 @@ setup(
     #long_description=readme,
     author='Niklas Holtmeyer',
     url='https://github.com/NiklasHoltmeyer/FashionScrapper',
-    #license=license,
+    license=license,
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=required
 )
