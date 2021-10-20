@@ -67,11 +67,10 @@ def entries_to_json(brands, entries_path, force=False):
     with Json_DB(entries_path) as db:
         return db.all()
 
-
 if __name__ == "__main__":
     entries_path = Path(BASE_PATH, "entires.json")
 
     brands = [Asos, Mango, HM]
 
-    entries = entries_to_json(brands, entries_path, force=True)
+    entries = entries_to_json(brands, entries_path, force=False)
     print(len(entries))
