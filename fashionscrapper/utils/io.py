@@ -39,6 +39,7 @@ def walk_entries(path, BLACKLIST=None):
 
 def time_logger(**kwargs):
     logger = kwargs.get("logger", defaultLogger("Fashion Scrapper"))
+    log_debug = kwargs.get("log_debug", True)
 
     def decorator(func):
         @wraps(func)
@@ -50,17 +51,26 @@ def time_logger(**kwargs):
 
             if header:
                 header_msg = pad_str(header, **kwargs)
-                logger.debug(header_msg, extra={'name_override': func.__name__})
+                if log_debug:
+                    logger.debug(header_msg, extra={'name_override': func.__name__})
+                else:
+                    logger.info(header_msg, extra={'name_override': func.__name__})
 
             result = func(*args, **inner_kwargs)
 
             totalTime = time.time() - startTime
 
-            logger.debug(f"[{name}] Elapsed Time: {totalTime}s", extra={'name_override': func.__name__})
+            if log_debug:
+                logger.debug(f"[{name}] Elapsed Time: {totalTime}s", extra={'name_override': func.__name__})
+            else:
+                logger.info(f"[{name}] Elapsed Time: {totalTime}s", extra={'name_override': func.__name__})
 
             if footer:
                 footer_msg = pad_str(footer, **kwargs)
-                logger.debug(footer_msg, extra={'name_override': func.__name__})
+                if log_debug:
+                    logger.debug(footer_msg, extra={'name_override': func.__name__})
+                else:
+                    logger.info(footer_msg, extra={'name_override': func.__name__})
             return result
 
         return wrapper

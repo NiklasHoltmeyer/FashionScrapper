@@ -15,7 +15,7 @@ setup(
     name='fashionscrapper',
     version='0.1.0',
     description='',
-    #long_description=readme,
+    long_description=readme,
     author='Niklas Holtmeyer',
     url='https://github.com/NiklasHoltmeyer/FashionScrapper',
     license=license,
